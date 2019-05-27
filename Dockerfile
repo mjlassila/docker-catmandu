@@ -1,26 +1,47 @@
 # Dockerizing Catmandu
+# Based on https://github.com/LibreCat/docker-catmandu
 
-FROM debian:jessie
-MAINTAINER Vitali Peil
+FROM debian:stretch
 
-RUN apt-get update && apt-get install -y \
-  sudo \
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  libany-uri-escape-perl \
+  libasa-perl \
+  libcgi-expand-perl \
+  libclone-perl \
+  libconfig-onion-perl \
+  libcpanel-json-xs-perl \
+  libdata-compare-perl \
+  libdata-util-perl \
+  libdata-uuid-perl \
+  libhash-merge-simple-perl \
+  libio-handle-util-perl \
+  liblist-moreutils-perl \
+  liblog-any-perl \
+  libmime-types-perl \
+  libmodule-info-perl \
+  libmoo-perl \
+  libmoox-aliases-perl \
+  libnamespace-clean-perl \
+  libparser-mgc-perl \
+  libpath-iterator-rule-perl \
+  libpath-tiny-perl \
+  libsub-exporter-perl \
+  libtext-csv-perl \
+  libtext-hogan-perl \
+  libthrowable-perl \
+  libtry-tiny-byclass-perl \
+  liburi-perl \
+  liburi-template-perl \
+  libwww-perl \
+  libyaml-libyaml-perl \
   cpanminus \
   build-essential \
-  libexpat1-dev \
-  libssl-dev \
-  libxml2-dev \
-  libxslt1-dev \
-  libgdbm-dev \
-  libcapture-tiny-perl\
-  curl \
-  wget \
   nano \
-  vim \
-  bsdmainutils \
-  tree \
-  man-db \
-  perl-doc
+  magic-wormhole \
+  wget \
+  ibcatmandu-perl \
+  && rm -rf /var/lib/apt/lists/*
 
 RUN adduser --disabled-password --gecos "" catmandu
 
