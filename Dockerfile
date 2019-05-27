@@ -40,7 +40,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   nano \
   magic-wormhole \
   wget \
-  ibcatmandu-perl \
+  libcatmandu-perl \
   && rm -rf /var/lib/apt/lists/*
 
 RUN adduser --disabled-password --gecos "" catmandu
@@ -49,8 +49,8 @@ COPY . /home/catmandu
 
 WORKDIR /home/catmandu
 
-RUN cpanm -n -q --installdeps . && \
-  rm -rf /var/lib/apt/lists/*
+#RUN cpanm -n -q --installdeps . && \
+#  rm -rf /var/lib/apt/lists/*
 
 RUN chown catmandu:catmandu *
 
