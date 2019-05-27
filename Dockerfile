@@ -54,6 +54,4 @@ WORKDIR /home/catmandu
 
 RUN chown catmandu:catmandu *
 
-USER catmandu
-
-CMD ["/bin/bash"]
+RUN mkdir /home/catmandu/data

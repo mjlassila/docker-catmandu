@@ -7,11 +7,8 @@ PWD=$(shell pwd)
 build:
 	docker build -t mjlassila/catmandu .
 
-create_network:
-	docker network create --driver bridge gp
-
 run:
-	docker run -d --name catmandu -p 8100:80 --restart unless-stopped --net=gp mjlassila/catmandu
+	docker run -it --name catmandu -v catmandu_data:/home/catmandu/data mjlassila/catmandu
 
 stop:
 	docker stop $(CONT)
